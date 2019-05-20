@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using EmployeeDataAccess;
 namespace EmployeeService.Controllers
 {
     public class EmployeesController : ApiController
     {
+        [EnableCorsAttribute("*", "*", "*")]
         public IEnumerable<Employee> Get()
         {
             using (EmployeeDbEntities entities = new EmployeeDbEntities())

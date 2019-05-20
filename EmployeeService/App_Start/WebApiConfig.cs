@@ -3,7 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
-
+using System.Web.Http.Cors;
+using WebApiContrib.Formatting.Jsonp;
 namespace EmployeeService
 {
     public static class WebApiConfig
@@ -20,11 +21,15 @@ namespace EmployeeService
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+            
+            //Jsonp
+            //var jsonFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
+            //config.Formatters.Insert(0, jsonFormatter);
 
-            //config.Formatters.JsonFormatter.SerializerSettings.Formatting =
-              //  Newtonsoft.Json.Formatting.Indented;
-            //config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
-              //  new CamelCasePropertyNamesContractResolver();
+            //Cors
+            EnableCorsAttribute cors = new EnableCorsAttribute("*","*","*");
+            config.EnableCors(cors);
+
         }
     }
 }
