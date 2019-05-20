@@ -29,7 +29,9 @@ namespace EmployeeService
             //Cors
             EnableCorsAttribute cors = new EnableCorsAttribute("*","*","*");
             config.EnableCors(cors);
-
+            
+            //Http to Https
+            //config.Filters.Add(new RequireHttpsAttribute());
         }
     }
 }
