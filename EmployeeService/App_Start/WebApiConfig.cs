@@ -21,15 +21,15 @@ namespace EmployeeService
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            
+
             //Jsonp
             //var jsonFormatter = new JsonpMediaTypeFormatter(config.Formatters.JsonFormatter);
             //config.Formatters.Insert(0, jsonFormatter);
 
             //Cors
-            EnableCorsAttribute cors = new EnableCorsAttribute("*","*","*");
-            config.EnableCors(cors);
-            
+            //EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(cors);
+
             //Http to Https
             //config.Filters.Add(new RequireHttpsAttribute());
         }
