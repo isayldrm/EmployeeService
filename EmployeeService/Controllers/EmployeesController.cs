@@ -11,6 +11,7 @@ namespace EmployeeService.Controllers
     public class EmployeesController : ApiController
     {
         [EnableCorsAttribute("*", "*", "*")]
+        [RequireHttps]
         public IEnumerable<Employee> Get()
         {
             using (EmployeeDbEntities entities = new EmployeeDbEntities())
